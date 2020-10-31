@@ -12,7 +12,7 @@ JOBS
 2. create client class
 3. test send email
 4. create library of email messages
-5. create scheduler to determine mailsend.
+5. create scheduler to determine mail send.
 
 '''
 
@@ -27,15 +27,29 @@ class Client():
 		self.searches = searches
 
 	def __repr__(self):
+		''' Returns client object as client detail '''
 		return f"Name: {self.first} {self.last} \
-			   Job: {self.job} \
-			   Company: {self.company} \
-			   email: {self.email}"
+		Job: {self.job} \
+		Company: {self.company} \
+		email: {self.email}"
 
-c1 = Client("Steve", "Winner" ,"Editor", "BBC", "steve.winner@bbc.co.uk")
+def get_clients(job):
+	'''Get clients dependent on job '''
+	for x in clients:
+		if x.job == job:
+			print(x)
+
+
+
+
+c1 = Client("Steve", "Winner" , "Editor", "BBC", "steve.winner@bbc.co.uk")
 c2 = Client("John", "Baker", "Producer", "ITV", "john.baker@itv.com")
-c3 = Client("Isabelle", "Smith", "Promo Producer","ITV", "isabelle.smith@itv.com")
+c3 = Client("Isabelle", "Smith", "Promo Producer", "ITV", "isabelle.smith@itv.com")
+
+clients = [c1,c2,c3]
 
 
-print(c1)
+
+
+get_clients('Promo Producer')
 
