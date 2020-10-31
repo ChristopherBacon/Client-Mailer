@@ -17,6 +17,8 @@ def main():
 	get_clients2()
 	print('test first')
 
+	#Getting better thanks Tommy
+
 #filepath = [r'/Users/christopherbacon/Downloads/jstdatasetr4.csv']
 #def get_clients():
 	#with open(filepath) as f:
