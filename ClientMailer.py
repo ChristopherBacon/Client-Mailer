@@ -33,6 +33,8 @@ class Client():
 			   email: {self.email}"
 
 c1 = Client("Steve", "Winner" ,"Editor", "BBC", "steve.winner@bbc.co.uk")
+c2 = Client("John", "Baker", "Producer", "ITV", "john.baker@itv.com")
+c3 = Client("Isabelle", "Smith", "Promo Producer","ITV", "isabelle.smith@itv.com")
 
 
 print(c1)
