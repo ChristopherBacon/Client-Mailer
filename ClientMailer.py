@@ -47,18 +47,23 @@ def search_for_clients(client_list, search_term):
     return matched_clients
 
 
+clients_dict = []
 def open_client_file():
-    with open('clients.csv', encoding='utf-8-sig') as f:
-        client_dictionary = csv.DictReader(f)
-        for dct in map(dict, client_dictionary):
-            print(dct)
 
+    file = open('clients.csv', encoding='utf-8-sig')
+    client_ordered_dict = csv.DictReader(file)
 
+    for row in client_ordered_dict:
+        clients_dict.append({
+            'First' : row['First Name'],
+            'Last' : row['Last Name'],
+            'Company' : row['Account Name'],
+            'Email' : row['Email'],
+            'Job' : row['Job']
+        })
 
-#def client_from_dict():
-    #print(client_dictionary)
-
-
+def create_class_from_dict():
+    for row in clients_dict:
 
 
 def get_client_data():
@@ -75,13 +80,12 @@ def print_clients(client_list):
         for client in client_list:
             print(client)
 
-
 def main():
     clients = get_client_data()
     clients_from_itv = search_for_clients(clients, "ITV")
     print_clients(clients_from_itv)
     open_client_file()
-    #client_from_dict()
+    print(clients_dict)
 
 
 
