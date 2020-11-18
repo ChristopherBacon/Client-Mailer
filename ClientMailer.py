@@ -1,9 +1,10 @@
-'''
+"""
 PROJECT
 Client Mailer
 Small CRM
 emailer
-'''
+"""
+
 
 '''
 JOBS
@@ -14,6 +15,7 @@ JOBS
 5. create scheduler to determine mail send.
 
 '''
+import csv
 
 
 class Client():
@@ -36,7 +38,6 @@ class Client():
             email: {self.email}"
 
 
-# TODO: This needs more work, not quite functioning and logic doesn't work
 def search_for_clients(client_list, search_term):
     matched_clients = []
     for client in client_list:
@@ -44,6 +45,20 @@ def search_for_clients(client_list, search_term):
                 client.job == search_term or client.company == search_term:
             matched_clients.append(client)
     return matched_clients
+
+
+def open_client_file():
+    with open('clients.csv', encoding='utf-8-sig') as f:
+        client_dictionary = csv.DictReader(f)
+        for dct in map(dict, client_dictionary):
+            print(dct)
+
+
+
+#def client_from_dict():
+    #print(client_dictionary)
+
+
 
 
 def get_client_data():
@@ -65,6 +80,9 @@ def main():
     clients = get_client_data()
     clients_from_itv = search_for_clients(clients, "ITV")
     print_clients(clients_from_itv)
+    open_client_file()
+    #client_from_dict()
+
 
 
 if __name__ == "__main__":
