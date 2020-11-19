@@ -1,20 +1,16 @@
 """
 PROJECT
-Client Mailer
-Small CRM
-emailer
+CRM - Manage a client database, also client stats (stretch)
+Client Mailer - Sent bulk mails with different content
 """
 
-
-'''
+"""
 JOBS
-1. Get Client Data
-2. create client class
 3. test send email
 4. create library of email messages
 5. create scheduler to determine mail send.
+"""
 
-'''
 import csv
 
 
@@ -38,40 +34,37 @@ class Client():
             email: {self.email}"
 
 
+def open_client_file():
+    """ Opens csv of clients, converts to dictionary by csv fields. """
+    clients_dict = []
+    file = open('clients.csv', encoding='utf-8-sig')
+    client_ordered_dict = csv.DictReader(file)
+
+    for row in client_ordered_dict:
+        clients_dict.append({
+            'First': row['First Name'],
+            'Last': row['Last Name'],
+            'Company': row['Account Name'],
+            'Email': row['Email'],
+            'Job': row['Job']
+        })
+    return clients_dict
+
+def create_client_from_dict():
+    """ Creates Client class from the dictionary of clients"""
+    client_data = []
+    for row in open_client_file():
+        client_data.append(Client(row['First'], row['Last'], row['Job'], row['Company'], row['Email']))
+    return client_data
+
 def search_for_clients(client_list, search_term):
+    """ Search for clients"""
     matched_clients = []
     for client in client_list:
         if client.first == search_term or client.last == search_term or \
                 client.job == search_term or client.company == search_term:
             matched_clients.append(client)
     return matched_clients
-
-
-clients_dict = []
-def open_client_file():
-
-    file = open('clients.csv', encoding='utf-8-sig')
-    client_ordered_dict = csv.DictReader(file)
-
-    for row in client_ordered_dict:
-        clients_dict.append({
-            'First' : row['First Name'],
-            'Last' : row['Last Name'],
-            'Company' : row['Account Name'],
-            'Email' : row['Email'],
-            'Job' : row['Job']
-        })
-
-def create_class_from_dict():
-    for row in clients_dict:
-
-
-def get_client_data():
-    c1 = Client("Steve", "Winner", "Editor", "BBC", "steve.winner@bbc.co.uk")
-    c2 = Client("John", "Baker", "Producer", "ITV", "john.baker@itv.com", 1, 0)
-    c3 = Client("Isabelle", "Smith", "Promo Producer", "ITV", "isabelle.smith@itv.com")
-    return [c1, c2, c3]
-
 
 def print_clients(client_list):
     if len(client_list) == 0:
@@ -80,13 +73,12 @@ def print_clients(client_list):
         for client in client_list:
             print(client)
 
-def main():
-    clients = get_client_data()
-    clients_from_itv = search_for_clients(clients, "ITV")
-    print_clients(clients_from_itv)
-    open_client_file()
-    print(clients_dict)
 
+def main():
+    clients_from_itv = search_for_clients(create_client_from_dict(), "ITV")
+    print_clients(clients_from_itv)
+    print(open_client_file())
+    print(create_client_from_dict())
 
 
 if __name__ == "__main__":
