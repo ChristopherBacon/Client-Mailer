@@ -26,7 +26,7 @@ def fstring_place_holders():
 
 def bulk_send():
     client_data = create_client_from_dict()
-    port = 1025  # For SSL
+    port = 1025  # For debug server
     smtp_server = 'localhost'
     sender_email = "my@gmail.com"  # Enter your address
 
@@ -39,8 +39,6 @@ def bulk_send():
 
 
 def main():
-    print(open_email_file())
-    print(create_client_from_dict())
     bulk_send()
 
 if __name__ == '__main__':
