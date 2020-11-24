@@ -58,7 +58,7 @@ def create_client_from_dict():
     return client_data
 
 def search_for_clients(client_list, search_term):
-    """ Search for clients"""
+    """ Search for clients from client_list"""
     matched_clients = []
     for client in client_list:
         if client.first == search_term or client.last == search_term or \
@@ -67,6 +67,7 @@ def search_for_clients(client_list, search_term):
     return matched_clients
 
 def print_clients(client_list):
+    """ Print clients in client_list"""
     if len(client_list) == 0:
         print("Please try again, your search has returned no results.")
     else:
