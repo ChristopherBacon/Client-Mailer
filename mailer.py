@@ -30,42 +30,18 @@ def bulk_send():
     smtp_server = 'localhost'
     sender_email = "my@gmail.com"  # Enter your address
 
-    for x in client_data:
-        print(client_data['First'])
+    for client in client_data:
+        receiver_email = client.email
+        msg = fstring_place_holders()
+        server = smtplib.SMTP(smtp_server, port)
+        server.sendmail(sender_email, receiver_email, msg.format(first=client.first))
+        server.quit()
 
-    msg = print(open_email_file())
-
-    server = smtplib.SMTP(smtp_server, port)
-    server.sendmail(sender_email, receiver_email, msg)
-    server.quit()
-
-
-
-
-
-        #server.sendmail(
-            #from_address,
-            #email,
-            #message.format(name=name, grade=grade),
-        #)
-
-
-    port = 1025  # For SSL
-    smtp_server = 'localhost'
-    sender_email = "my@gmail.com"  # Enter your address
-    receiver_email = "your@gmail.com"  # Enter receiver address
-    #password = input("Type your password and press enter: ")
-
-    msg = print(open_email_file())
-
-    server = smtplib.SMTP(smtp_server, port)
-    server.sendmail(sender_email, receiver_email, msg)
-    server.quit()
 
 def main():
     print(open_email_file())
-    print(open_client_file())
-    print(place_holders())
+    print(create_client_from_dict())
+    bulk_send()
 
 if __name__ == '__main__':
     main()
