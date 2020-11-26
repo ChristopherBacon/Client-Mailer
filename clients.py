@@ -1,14 +1,11 @@
 """
-PROJECT
-CRM - Manage a client database, also client stats (stretch)
-Client Mailer - Sent bulk mails with different content
+Create clients
 """
 
 """
-JOBS
-3. test send email
-4. create library of email messages
-5. create scheduler to determine mail send.
+TO DO:
+include email history that have been sent to Clients
+
 """
 
 import csv
@@ -69,7 +66,7 @@ def search_for_clients(client_list, search_term):
 def print_clients(client_list):
     """ Print clients in client_list"""
     if len(client_list) == 0:
-        print("Please try again, your search has returned no results.")
+        print("Please try again, your list has no clients.")
     else:
         for client in client_list:
             print(client)
