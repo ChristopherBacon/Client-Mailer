@@ -36,7 +36,7 @@ def random_email_generator():
 
 def open_email_file():
     """ Open email template """
-    with open(r'emails/intro email.txt', "r") as file:
+    with open(r'./emails/intro email.txt', "r") as file:
         email_copy = file.read()
         file.close()
     return email_copy
@@ -51,7 +51,7 @@ def fstring_place_holders():
 
 
 def main():
-    #check_emails()
+    check_emails()
     print(random_email_generator())
 
 

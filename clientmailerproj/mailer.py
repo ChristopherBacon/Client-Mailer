@@ -5,6 +5,7 @@ clients - Manage a client database, also client stats (stretch)
 mailer - Sent bulk mails with different content
 
 Notes: This version is set up with the debug server from smtp
+Set up server: python -m smtpd -c DebuggingServer -n localhost:1025
 """
 
 """
@@ -18,8 +19,8 @@ Write tests
 import smtplib
 
 
-from clients import create_client_from_dict
-from mailtemplates import fstring_place_holders, check_emails
+from clientmailerproj.clients import create_client_from_dict
+from clientmailerproj.mailtemplates import fstring_place_holders, check_emails
 
 
 def bulk_send():

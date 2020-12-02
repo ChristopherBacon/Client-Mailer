@@ -11,7 +11,7 @@ include email history that have been sent to Clients
 import csv
 
 
-class Client():
+class Client:
     """ Client class, create clients."""
 
     def __init__(self, first, last, job, company, email, replies=0, searches=0):
@@ -31,10 +31,10 @@ class Client():
             email: {self.email}"
 
 
-def open_client_file():
+def open_client_file_to_dict():
     """ Opens csv of clients, converts to dictionary by csv fields. """
     clients_dict = []
-    file = open('clients.csv', encoding='utf-8-sig')
+    file = open(r'clientmailerproj/client.csv', encoding='utf-8-sig')
     client_ordered_dict = csv.DictReader(file)
 
     for row in client_ordered_dict:
@@ -50,7 +50,7 @@ def open_client_file():
 def create_client_from_dict():
     """ Creates Client class from the dictionary of clients"""
     client_data = []
-    for row in open_client_file():
+    for row in open_client_file_to_dict():
         client_data.append(Client(row['First'], row['Last'], row['Job'], row['Company'], row['Email']))
     return client_data
 
@@ -67,17 +67,17 @@ def print_clients(client_list):
     """ Print clients in client_list"""
     if len(client_list) == 0:
         print("Please try again, your list has no clients.")
+        return
     else:
         for client in client_list:
             print(client)
-
+    return
 
 def main():
     clients_from_itv = search_for_clients(create_client_from_dict(), "ITV")
     print_clients(clients_from_itv)
-    print(open_client_file())
+    print(open_client_file_to_dict())
     print(create_client_from_dict())
-
 
 if __name__ == "__main__":
     main()
