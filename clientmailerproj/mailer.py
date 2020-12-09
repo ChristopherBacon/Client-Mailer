@@ -31,7 +31,7 @@ def bulk_send():
 
     for client in client_data:
         receiver_email = client.email
-        msg = fstring_place_holders()
+        msg = fstring_place_holders(r'./emails/test_mail.txt')
         server = smtplib.SMTP(smtp_server, port)
         server.sendmail(sender_email, receiver_email, msg.format(first=client.first))
         server.quit()
