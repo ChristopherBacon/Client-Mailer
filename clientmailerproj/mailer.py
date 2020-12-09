@@ -39,7 +39,7 @@ def bulk_send():
 
 def main():
     bulk_send()
-    print(check_emails())
+    print(bulk_send())
 
 if __name__ == '__main__':
     main()

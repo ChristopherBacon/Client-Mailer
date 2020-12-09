@@ -14,7 +14,7 @@ exclude those templates
 
 
 def check_emails():
-    """ check emails in file"""
+    """ check template emails in file"""
     emails = glob.glob("emails/*.txt")
     email_list = []
     for email in emails:
@@ -33,26 +33,28 @@ def random_email_generator():
     random_mail = random.choice(email_selection)
     return random_mail[1]
 
-
-def open_email_file():
+#remember to call this before f-string
+def open_email_file(file_path):
     """ Open email template """
-    with open(r'./emails/intro email.txt', "r") as file:
+    with open(file_path, "r") as file:
         email_copy = file.read()
         file.close()
     return email_copy
 
-def fstring_place_holders():
+
+#Call open_email_file before, fstring_place_holders
+def fstring_place_holders(draft_email):
     """ Insert f string formatting into template, first name"""
-    email_content = open_email_file()
+    email_copy = open_email_file(draft_email)
     first_name_space = r'[HhIi]+\s,'
     first_placeholder = r'Hi {first},'
-    insert_first = re.sub(first_name_space, first_placeholder, email_content)
+    insert_first = re.sub(first_name_space, first_placeholder, email_copy)
     return insert_first
 
 
 def main():
     check_emails()
-    print(random_email_generator())
+    print(fstring_place_holders(r'./emails/test_mail.txt'))
 
 
 if __name__ == '__main__':
