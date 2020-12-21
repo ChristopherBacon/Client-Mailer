@@ -23,15 +23,14 @@ from clientmailerproj.clients import create_client_from_dict
 from clientmailerproj.mailtemplates import fstring_place_holders, check_emails
 
 
-def bulk_send():
-    client_data = create_client_from_dict()
+def bulk_send(clients=create_client_from_dict(), email_temp='test_mail.txt'):
     port = 1025  # For debug server
     smtp_server = 'localhost'
-    sender_email = "my@gmail.com"
+    sender_email = "salesy@gmail.com"
 
-    for client in client_data:
+    for client in clients:
         receiver_email = client.email
-        msg = fstring_place_holders(r'./emails/test_mail.txt')
+        msg = fstring_place_holders(f'./emails/{email_temp}')
         server = smtplib.SMTP(smtp_server, port)
         server.sendmail(sender_email, receiver_email, msg.format(first=client.first))
         server.quit()
