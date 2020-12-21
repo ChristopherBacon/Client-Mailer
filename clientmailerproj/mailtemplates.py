@@ -15,7 +15,7 @@ exclude those templates
 
 def check_emails():
     """ check template emails in file"""
-    emails = glob.glob("emails/*.txt")
+    emails = glob.glob("../emails/*.txt")
     email_list = []
     for email in emails:
         email = os.path.basename(email)
@@ -52,10 +52,12 @@ def fstring_place_holders(draft_email):
     return insert_first
 
 
-def main():
-    check_emails()
-    print(fstring_place_holders(r'./emails/test_mail.txt'))
+#def main():
+    #check_emails()
+    #print(fstring_place_holders(r'./emails/test_mail.txt'))
 
 
-if __name__ == '__main__':
-    main()
+#if __name__ == '__main__':
+ #   main()
+
+print(check_emails())

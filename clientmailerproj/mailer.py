@@ -37,12 +37,12 @@ def bulk_send():
         server.quit()
 
 
-def main():
-    bulk_send()
-    print(bulk_send())
+# def main():
+#     bulk_send()
+#     print(bulk_send())
 
-if __name__ == '__main__':
-    main()
+#if __name__ == '__main__':
+#    main()
 
 
 

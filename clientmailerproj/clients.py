@@ -4,12 +4,13 @@ Create clients
 
 """
 TO DO:
-include email history that have been sent to Clients
+include email history for clients
 
 """
 
 import csv
 
+clients_list = []
 
 class Client:
     """ Client class, create clients."""
@@ -34,7 +35,7 @@ class Client:
 def open_client_file_to_dict():
     """ Opens csv of clients, converts to dictionary by csv fields. """
     clients_dict = []
-    file = open(r'clientmailerproj/client.csv', encoding='utf-8-sig')
+    file = open(r'./client.csv', encoding='utf-8-sig')
     client_ordered_dict = csv.DictReader(file)
 
     for row in client_ordered_dict:
@@ -49,10 +50,9 @@ def open_client_file_to_dict():
 
 def create_client_from_dict():
     """ Creates Client class from the dictionary of clients"""
-    client_data = []
     for row in open_client_file_to_dict():
-        client_data.append(Client(row['First'], row['Last'], row['Job'], row['Company'], row['Email']))
-    return client_data
+        clients_list.append(Client(row['First'], row['Last'], row['Job'], row['Company'], row['Email']))
+    return
 
 def search_for_clients(client_list, search_term):
     """ Search for clients from client_list"""
@@ -73,11 +73,12 @@ def print_clients(client_list):
             print(client)
     return
 
-def main():
-    clients_from_itv = search_for_clients(create_client_from_dict(), "ITV")
-    print_clients(clients_from_itv)
-    print(open_client_file_to_dict())
-    print(create_client_from_dict())
+#def main():
+#   clients_from_itv = search_for_clients(create_client_from_dict(), "ITV")
+#     print_clients(clients_from_itv)
+#     print(open_client_file_to_dict())
+#     print(create_client_from_dict())
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
+
