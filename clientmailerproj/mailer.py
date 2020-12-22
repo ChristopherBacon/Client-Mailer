@@ -30,7 +30,8 @@ def bulk_send(clients=create_client_from_dict(), email_temp='test_mail.txt'):
 
     for client in clients:
         receiver_email = client.email
-        msg = fstring_place_holders(f'./emails/{email_temp}')
+        msg = fstring_place_holders(f'../emails/{email_temp}')
+        print(msg)
         server = smtplib.SMTP(smtp_server, port)
         server.sendmail(sender_email, receiver_email, msg.format(first=client.first))
         server.quit()

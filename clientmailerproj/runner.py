@@ -74,7 +74,9 @@ def main():
             print(clients_to_email)
             print('email template sending:')
             print(selected_template)
-            bulk_send(clients_to_email, selected_template)
+            clients = clients_to_email
+            email_temp = selected_template
+            bulk_send(clients, email_temp)
             clients_to_email.clear()
             selected_template = []
             print(selected_template)

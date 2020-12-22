@@ -61,3 +61,4 @@ def fstring_place_holders(draft_email):
  #   main()
 
 print(check_emails())
+print(open_email_file(r'../emails/promos email.txt'))
