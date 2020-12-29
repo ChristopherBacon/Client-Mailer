@@ -52,13 +52,6 @@ def fstring_place_holders(draft_email):
     return insert_first
 
 
-#def main():
-    #check_emails()
-    #print(fstring_place_holders(r'./emails/test_mail.txt'))
 
-
-#if __name__ == '__main__':
- #   main()
-
-print(check_emails())
-print(open_email_file(r'../emails/promos email.txt'))
+#print(check_emails())
+#print(open_email_file(r'../emails/promos email.txt'))

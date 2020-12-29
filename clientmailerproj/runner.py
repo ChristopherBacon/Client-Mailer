@@ -13,6 +13,9 @@ def main():
     open_client_file_to_dict()
     create_client_from_dict()
     print('csv loaded')
+    print(clients_list)
+    #print(search_for_clients(clients_list, 'BBC'))
+
 
     clients_to_email = []
     selected_template = []
@@ -38,19 +41,51 @@ def main():
             email = input('email:')
             clients_list.append(Client(first, last, job, company, email))
 
-        elif ans == "2":
-            search_clients = input('Search for a client group:')
-            searched_clients = search_for_clients(clients_list, search_clients)
-            while len(searched_clients) == 0:
-                search_clients = input('Search for a client group:')
-                searched_clients = search_for_clients(clients_list, search_clients)
-            print('clients to email:')
-            #email list of clients to sent out
-            clients_to_email = searched_clients
-            for x in searched_clients:
-                print(x)
-            continue
+        # elif ans == "2":
+        #     # input search terms for clients
+        #     search_clients = input('Search for a client group:')
+        #     # function from clients.py returns list
+        #     searched_clients = search_for_clients(clients_list, search_clients)
+        #     clients_to_email = searched_clients
+        #     print(clients_to_email)
+        #     if len(searched_clients) > 0:
+        #         break
+        #     else:
+        #     # if search is 0, repeat search
+        #         while len(clients_to_email) == 0:
+        #             print('sorry no clients matched, try again')
+        #             search_clients = input('Search for a client group:')
+        #             searched_clients = search_for_clients(clients_list, search_clients)
+        #
+        #     print('clients to email:')
+        #     #email list of clients to sent out
+        #     clients_to_email = searched_clients
+        #     for x in clients_to_email:
+        #         print(x)
+        #     continue
 
+        # elif ans == "2":
+        #     # input search terms for clients
+        #     search_clients = input('Search for a client group:')
+        #     # function from clients.py returns list
+        #     searched_clients = search_for_clients(clients_list, search_clients)
+        #     print(searched_clients)
+        #     # if search is 0, repeat search
+        #     while len(searched_clients) == 0:
+        #         print('sorry no clients matched, try again')
+        #         search_clients = input('Search for a client group:')
+        #         searched_clients = search_for_clients(clients_list, search_clients)
+        #     else:
+        #         print('clients to email:')
+        #         #email list of clients to sent out
+        #         clients_to_email = searched_clients
+        #         for x in clients_to_email:
+        #             print(x)
+
+        elif ans == '2':
+            client_select = input('Enter search term to select clients:')
+            print(search_for_clients(clients_list, client_select))
+            break
 
         elif ans == "3":
             email_choice = input("Do you wish to choose an email or create random emails for clients? [1 or 2]")
@@ -67,6 +102,8 @@ def main():
             elif email_choice == "2":
                 selected_template = random_email_generator()
                 print(selected_template)
+            else:
+                break
 
         elif ans == "4":
         # remember to ensure the debug server is running

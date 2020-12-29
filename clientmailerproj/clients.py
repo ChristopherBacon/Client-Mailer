@@ -10,10 +10,11 @@ include email history for clients
 
 import csv
 
+# clients go here from create client from list func
 clients_list = []
 
 class Client:
-    """ Client class, create clients."""
+    """ client class, create clients."""
 
     def __init__(self, first, last, job, company, email, replies=0, searches=0):
         self.first = first
@@ -26,18 +27,18 @@ class Client:
 
     def __str__(self):
         """ Returns client object as client detail """
-        return f"Name: {self.first} {self.last} \
-            Job: {self.job} \
-            Company: {self.company} \
-            email: {self.email}"
+        return f"Name: {self.first} {self.last} Job: {self.job} Company: {self.company} email: {self.email}"
+
+    def __repr__(self):
+        """ Returns class object details"""
+        return f"Name: {self.first} {self.last} Job: {self.job} Company: {self.company} email: {self.email}"
 
 
 def open_client_file_to_dict():
-    """ Opens csv of clients, converts to dictionary by csv fields. """
+    """ Opens csv of clients, converts to dictionary by specified csv fields. """
     clients_dict = []
-    file = open(r'./client.csv', encoding='utf-8-sig')
+    file = open(r'../clientmailerproj/client.csv', encoding='utf-8-sig')
     client_ordered_dict = csv.DictReader(file)
-
     for row in client_ordered_dict:
         clients_dict.append({
             'First': row['First Name'],
@@ -63,6 +64,7 @@ def search_for_clients(client_list, search_term):
             matched_clients.append(client)
     return matched_clients
 
+
 def print_clients(client_list):
     """ Print clients in client_list"""
     if len(client_list) == 0:
@@ -73,12 +75,9 @@ def print_clients(client_list):
             print(client)
     return
 
-#def main():
-#   clients_from_itv = search_for_clients(create_client_from_dict(), "ITV")
-#     print_clients(clients_from_itv)
-#     print(open_client_file_to_dict())
-#     print(create_client_from_dict())
 
-# if __name__ == "__main__":
-#     main()
 
+# open_client_file_to_dict()
+# create_client_from_dict()
+# print(search_for_clients(clients_list, r'BBC'))
+# print(clients_list)

@@ -14,35 +14,27 @@ create scheduler to determine mail send times and dates
 Pull functions from mailtemplates & clients into main delivery thread
 Write tests
 """
-
-
 import smtplib
 
 
 from clientmailerproj.clients import create_client_from_dict
 from clientmailerproj.mailtemplates import fstring_place_holders, check_emails
 
-
-def bulk_send(clients=create_client_from_dict(), email_temp='test_mail.txt'):
+def bulk_send(chosen_clients, chosen_mail_template):
     port = 1025  # For debug server
     smtp_server = 'localhost'
     sender_email = "salesy@gmail.com"
 
-    for client in clients:
+    for client in chosen_clients:
         receiver_email = client.email
-        msg = fstring_place_holders(f'../emails/{email_temp}')
+        msg = fstring_place_holders(f'../emails/{chosen_mail_template[0]}')
         print(msg)
         server = smtplib.SMTP(smtp_server, port)
         server.sendmail(sender_email, receiver_email, msg.format(first=client.first))
         server.quit()
 
 
-# def main():
-#     bulk_send()
-#     print(bulk_send())
 
-#if __name__ == '__main__':
-#    main()
 
 
 
