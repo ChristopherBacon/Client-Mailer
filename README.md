@@ -9,7 +9,7 @@ A project to manage a list of clients which can then be emailed from a selection
 
 # Table of Contents
 
-[Project Title](*Client Mailer)
+[Project Title](*Client-Mailer)
 [Preview](*Preview)
 [Installation](*Installation)
 [Data](*Data)
