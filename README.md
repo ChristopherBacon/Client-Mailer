@@ -5,7 +5,7 @@ A project to manage a list of clients which can then be emailed from a selection
 
 # Preview
 
-<img src="menu.png" width="500" height="450">
+<img src="menu.png" width="300" height="200">
 
 # Table of Contents
 
