@@ -30,12 +30,11 @@ cd ClientMailer'
 ```
 pip install requirements.txt
 ```
-
-To view the data in Streamlit:
+4. To run tests in terminal:
 ```
-streamlit run TweepyMPs.py
+cd ClientMailer
+pytest
 ```
-You can also access helper functions to investigate the data further in the module: [twitter_handles_list.py](twitter_handles_list.py) and [TweepyMPs.py](TweepyMPs.py)
 
 
 # Data
