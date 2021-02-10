@@ -49,6 +49,6 @@ pytest
 2. [mailer.py](clientmailerproj/mailer.py) The mail server for the project. You can run in debug mode: ```python -m smtpd -c DebuggingServer -n localhost:1025```
 then test your mail sending.
 
-3. 
+3. [mailtemplates.py](clientmailerproj/mailer.py)
 
 # Conclusion
