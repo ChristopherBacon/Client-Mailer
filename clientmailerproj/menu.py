@@ -19,7 +19,7 @@ def menu():
                     1. Add client(s)
                     2. Select client(s)
                     3. Select mail template
-                    4. Send Mail
+                    4. Send mail
                     5. Quit
                     """)
 
