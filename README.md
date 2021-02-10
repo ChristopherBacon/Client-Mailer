@@ -36,9 +36,12 @@ cd ClientMailer
 pytest
 ```
 
-
 # Data
 
+1. ```emails/``` This is where the tmeplates for the emails live. You can add templates to this manually as txt files.
+
 # Code
+
+1. 
 
 # Conclusion
