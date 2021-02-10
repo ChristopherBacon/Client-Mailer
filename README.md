@@ -44,6 +44,6 @@ pytest
 
 # Code
 
-1. [clients.py](*clients.py) Contains the client class, and also client helper functions
+1. [clients.py](clients.py) Contains the client class, and also client helper functions
 
 # Conclusion
