@@ -40,6 +40,8 @@ pytest
 
 1. ```emails/``` This is where the tmeplates for the emails live. You can add templates to this manually as txt files.
 
+2. ```clients.csv```
+
 # Code
 
 1. 
