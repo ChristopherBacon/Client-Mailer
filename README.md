@@ -38,12 +38,17 @@ pytest
 
 # Data
 
-1. ```emails/``` This is where the tmeplates for the emails live. You can add templates to this manually as txt files.
+1. ```emails/``` This is where the templates for the emails live. You can add templates to this manually as txt files.
 
-2. ```clients.csv```
+2. ```clients.csv```Dictionary of pre-existing clients that can be uploaded and mailed.
 
 # Code
 
-1. [clients.py](clientmailerproj/clients.py) Contains the client class, and also client helper functions
+1. [clients.py](clientmailerproj/clients.py) Contains the client class for creating clients, and also client helper functions for uploading clients.
+
+2. [mailer.py](clientmailerproj/mailer.py) The mail server for the project. You can run in debug mode: ```python -m smtpd -c DebuggingServer -n localhost:1025```
+then test your mail sending.
+
+3. 
 
 # Conclusion
